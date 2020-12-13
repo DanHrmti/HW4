@@ -1,0 +1,8 @@
+1. Assuming we manully enter each link and search for the relevant names by reading each article, we estimate the task would take 1-5 minutes for each article, the longest total time for this task would be 5 hours.
+
+2. Our cunclusion is that bash is a very useful and efficient tool for gathering statistics as well as peforming repetative tasks in an automated manner. There are endless uses for this tool, a few examples are: searching and sorting big databases, extracting percise relevant data, calculating statistics out of experiment results and many more.
+
+3. If we were to repeat the news scan every hour automatically, all that is required is to run the following command in the terminal: watch -n 3600 ./scrape_news.sh
+We would prefer to not scan articles we have already scanned in previous runs.
+One solution is by managing a sorted list of the links and comparing each new link with that list using a binary search. This solution could have a very high time complexity as it is NlogM, N being the size of the current link list, and M being the size of the maintained link list. As M can grow over time, the complexity will grow as well.
+Another, more effecient solution would be to use the time stamp of the article to determine wether to scan it or not. For this, all we would need is to save the latest time stamp out of all of the articles we have already scanned. If the article in question was published after that time, we will scan it.
